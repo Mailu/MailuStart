@@ -8,4 +8,8 @@ setup(name='mailustart',
       author_email='ionut.filip@usrpro.com',
       license='MIT',
       packages=['mailustart'],
+      install_requires=[
+          'tenacity',
+          'jinja2',
+      ],
       zip_safe=False)
