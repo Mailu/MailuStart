@@ -10,9 +10,9 @@ import os
 @retry(
     stop=tenacity.stop_after_attempt(100),
     wait=tenacity.wait_random(min=2, max=5),
-    before=tenacity.before_log(log.getLogger("tenacity.retry"), log.DEBUG),
-    before_sleep=tenacity.before_sleep_log(log.getLogger("tenacity.retry"), log.INFO),
-    after=tenacity.after_log(log.getLogger("tenacity.retry"), log.DEBUG)
+    before=tenacity.before_log(log.getLogger(__name__ + ".tenacity.retry"), log.DEBUG),
+    before_sleep=tenacity.before_sleep_log(log.getLogger(__name__ + ".tenacity.retry"), log.INFO),
+    after=tenacity.after_log(log.getLogger(__name__ + ".tenacity.retry"), log.DEBUG)
     )
 
 def resolve(host):
@@ -20,7 +20,7 @@ def resolve(host):
         hostname, port = host.split(":")
     except ValueError:
         hostname = host
-    logger = log.getLogger("resolve()")
+    logger = log.getLogger(__name__ + ".resolve()")
     logger.info(hostname) 
     ip_addr = socket.gethostbyname(hostname)
     try:
