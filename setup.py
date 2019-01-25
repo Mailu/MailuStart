@@ -1,0 +1,15 @@
+from setuptools import setup
+
+setup(name='mailustart',
+      version='0.1',
+      description='Common functions used by Mailu\'s start.py',
+      url='https://github.com/Mailu/MailuStart',
+      author='Ionut Filip',
+      author_email='ionut.filip@usrpro.com',
+      license='MIT',
+      packages=['mailustart'],
+      install_requires=[
+          'tenacity',
+          'jinja2',
+      ],
+      zip_safe=False)
