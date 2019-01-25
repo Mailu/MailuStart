@@ -28,7 +28,10 @@ def resolve(host):
     except: 
         return ip_addr
 
-def convert(src, dst):
+def convert(src, dst, *args):
     logger = log.getLogger("convert()")
     logger.debug("Source: %s, Destination: %s", src, dst)
-    open(dst, "w").write(jinja2.Template(open(src).read()).render(**os.environ))
+    if args:
+        open(dst, "w").write(jinja2.Template(open(src).read()).render(**args))
+    else:
+        open(dst, "w").write(jinja2.Template(open(src).read()).render(**os.environ))
