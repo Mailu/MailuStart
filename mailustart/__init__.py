@@ -28,7 +28,7 @@ def resolve(host):
     except: 
         return ip_addr
 
-def convert(src, dst, *args):
+def convert(src, dst, args=None):
     logger = log.getLogger("convert()")
     logger.debug("Source: %s, Destination: %s", src, dst)
     if args:
